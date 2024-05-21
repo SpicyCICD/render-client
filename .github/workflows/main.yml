@@ -13,25 +13,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14' # or the version specified in your project
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14' # or the version specified in your project
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run build
-      run: npm run build
+      - name: Run build
+        run: npm run build
 
-    - name: Upload production-ready build files
-      uses: actions/upload-artifact@v2
-      with:
-        name: production-build
-        path: build
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: production-build
+          path: build
 
   deploy:
     needs: build
@@ -39,18 +39,18 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Download build artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: production-build
-        path: build
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: production-build
+          path: build
 
-    - name: Deploy to Render
-      env:
-        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-      run: |
-        curl -X POST "https://api.render.com/deploy/srv-cp65s8g21fec738brd9g?key=h97FKkjcv5U" \
-       
+      - name: Deploy to Render
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
+          # Add your deployment commands here
+          curl -X POST "https://api.render.com/deploy/srv-cp65s8g21fec738brd9g?key=h97FKkjcv5U"
