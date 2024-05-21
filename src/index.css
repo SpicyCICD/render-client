@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+
+  .logo {
+    width: 50px; /* Example width */
+    height: 30px; /* Maintains aspect ratio */
+    color: white;
+    filter: invert(100%);
+  }
