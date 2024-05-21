@@ -18,7 +18,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:8082/users/logout');
+      await axios.post('https://render-backend-yqw8.onrender.com/users/logout');
       sessionStorage.removeItem('authToken');
       navigate("/login");
     } catch (error) {

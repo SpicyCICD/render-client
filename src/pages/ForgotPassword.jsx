@@ -10,7 +10,7 @@ const ForgotPassword = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8082/users/forgotPassword', {
+            const response = await axios.post('https://render-backend-yqw8.onrender.com/users/forgotPassword', {
                 email
             });
             console.log("Reset Password Link has been sent");

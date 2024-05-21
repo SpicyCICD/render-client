@@ -19,7 +19,7 @@ const Register = () => {
     e.preventDefault();
     setError('');
     try {
-      const response = await axios.post('http://localhost:8082/users/', {
+      const response = await axios.post('https://render-backend-yqw8.onrender.com/users/', {
         email,
         password,
         username,

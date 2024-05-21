@@ -8,7 +8,7 @@ const VerifyMail = () => {
   const handleVerifyEmail = async () => {
     try {
       console.log('button clicked top')
-      const response = await axios.post(`http://localhost:8082/users/verify/${verificationToken}`);
+      const response = await axios.post(`https://render-backend-yqw8.onrender.com/users/verify/${verificationToken}`);
       console.log('button clicked bottom')
       if (response.status === 200) {
         // Redirect user to login page on successful email verification
