@@ -14,6 +14,7 @@ const Register = () => {
   const [loading, setLoading] = useState(true);
   const [reCaptchaToken, setReCaptchaToken] = useState(null);
   const captchaRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +29,7 @@ const Register = () => {
       console.log(`User Added with ${email}`)
 
       if (response.status === 200) {
-        window.location.href = '/login';
+        navigate('/login');
       } else {
         console.log("Error while creating user")
       }
