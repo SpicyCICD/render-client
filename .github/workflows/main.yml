@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: production-build
-        path: dist    # Assuming the build output is in the "dist" directory
+        path: dist    # Adjust the path according to your Vite project's build output
 
   deploy:
     needs: build
@@ -46,10 +46,10 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: production-build
-        path: dist    # Ensure to match the same path where the artifact is uploaded
+        path: dist
 
     - name: Deploy to Render
       env:
         RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
       run: |
-        curl -X POST "https://api.render.com/deploy/srv-cp65s8g21fec738brd9g?key=h97FKkjcv5U"
+        curl -X POST "https://api.render.com/deploy/srv-cp65s8g21fec738brd9g?key=h97FKkjcv5U"  # Replace with actual URL
